@@ -8,3 +8,11 @@ You will then render an error message if the error function returns true and you
 
 Your error should be inside a div with className `.error`.
 You should use a pre-existing component from `xelpmoc-core`.
+
+### To Submit
+
+1. Clone this repository.
+2. Checkout a new branch locally. Call this branch <first*name>*<last_name>
+3. Commit your code.
+4. Push
+5. Open a Pull Request.
