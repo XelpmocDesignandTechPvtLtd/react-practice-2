@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Input } from "xelpmoc-core";
-import PropTypes from "prop-types";
-
 // HINT: USE `xelpmoc-core` here.
-
 export default class ValidatedInput extends React.Component {
   constructor(props) {
     super(props);
