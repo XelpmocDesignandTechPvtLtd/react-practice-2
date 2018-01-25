@@ -38,3 +38,21 @@ test("ValidatedInput - validates correctly on error", () => {
   expect(validatedInput.state().hasError).toBe(true);
   expect(validatedInput.find(".error").length).toBe(1);
 });
+
+test("ValidatedInput - validates correctly without error", () => {
+  const errorMsg = "Invalid input";
+  const validatedInput = mount(
+    <ValidatedInput
+      errorFunc={val => {
+        return val.length < 4;
+      }}
+      errorMsg={errorMsg}
+    />
+  );
+
+  const input = validatedInput.find("input");
+
+  input.simulate("change", { target: { value: "1234" } });
+  expect(validatedInput.state().hasError).toBe(false);
+  expect(validatedInput.find(".error").length).toBe(0);
+});
