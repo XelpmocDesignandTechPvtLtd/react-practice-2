@@ -1,30 +1,34 @@
 import React, { Component } from "react";
 import { Input } from "xelpmoc-core";
+import PropTypes from "prop-types";
 // HINT: USE `xelpmoc-core` here.
+
 export default class ValidatedInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ({hasError:true});
+    this.state = ({hasError:false});
   }
   renderError() {
-    return (
-          <div className="error">
-              {this.props.errorMsg}
-              <Input {...this.props} hasError={this.state.hasError} hasError={true} onChange={()=>this.handleError(this.props)}/>          
-          </div>
-    );
+    this.setState({hasError:true});
   }
   handleError(value) {
-    this.setState({value});
+    if(value.length < 4){
+      this.renderError();
+    }
   }
   render() {
-    if(this.props.errorMsg){
-      return this.renderError();
+    if(this.state.hasError){
+      return <div className="error">this.props.errorMsg</div>;
     }
-    return <Input {...this.props} onChange={()=>this.handleError(this.props.value)}/>;
+    return (
+            <Input onChange={(event)=>this.handleError(event)}/>
+    );
   }
 }
-
-ValidatedInput.propTypes = {};
-
-ValidatedInput.defaultProps = {};
+ValidatedInput.propTypes = {
+  onChange: PropTypes.func,
+  errorMsg:PropTypes.string
+};
+ValidatedInput.defaultProps = {
+  errorMsg:""
+};
