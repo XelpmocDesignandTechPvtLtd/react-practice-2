@@ -27,9 +27,10 @@ export default class ValidatedInput extends React.Component {
 
 ValidatedInput.propTypes = {
    onChange: PropTypes.func,
+   renderError: PropTypes.func
 };
-
-ValidatedInput.defaultProps = {
-  hasError:false,
-};
-
+ 
+  ValidatedInput.defaultProps = {
+    errorMsg:""
+  };
+  
