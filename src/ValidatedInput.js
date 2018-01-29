@@ -26,9 +26,10 @@ export default class ValidatedInput extends React.Component {
         <div>
           <div className="error">
             <Input
-              onChange={value => this.handleError(value)}
+              onChange={(value)=> this.handleError(value)}
               hasError={this.state.hasError}
             />
+            {this.props.errorMsg}
           </div>;
         </div>
       );
@@ -36,7 +37,7 @@ export default class ValidatedInput extends React.Component {
     return (
       <div>
         <Input
-          onChange={value => this.handleError(value)}
+          onChange={(value) => this.handleError(value)}
           hasError={this.state.hasError}
         />
       </div>
@@ -45,7 +46,8 @@ export default class ValidatedInput extends React.Component {
 }
 
 ValidatedInput.propTypes = {
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  errorMsg:PropTypes.string
 };
 
 ValidatedInput.defaultProps = {
