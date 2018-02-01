@@ -16,3 +16,8 @@ You should use a pre-existing component from `xelpmoc-core`.
 3. Commit your code.
 4. Push
 5. Open a Pull Request.
+
+
+## Example
+
+![](https://github.com/XelpmocDesignandTechPvtLtd/react-practice-2/blob/master/src/test.gif)
