@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {Input} from "xelpmoc-core";
 import PropTypes from "prop-types";
 export default class ValidatedInput extends React.Component {
