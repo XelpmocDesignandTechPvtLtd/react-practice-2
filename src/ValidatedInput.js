@@ -9,28 +9,27 @@ export default class ValidatedInput extends React.Component {
     }
   }
   renderError() {
-    this.setState({ hasError: true });
+    if(this.state.hasError === true){
+    return <div className="error">{this.props.errorMsg}</div>;
+    }
   }
-
   handleError(value) {
-    if(this.props.errorFunc(value)){
-      this.renderError();
-     }
+   if(this.props.errorFunc(value)){
+    this.setState({hasError:true});
+   }
 }
   render() {
-    if(this.state.hasError ){
-      return <div className="error">this.props.errorMsg</div>;
-     }
-     return <Input onChange={(event)=>this.handleError(event)}/>;
+     return <div>
+       <Input onChange={(value)=>this.handleError(value)}/>
+       {this.renderError()}
+       </div>
   }
 }
 
 ValidatedInput.propTypes = {
-   onChange: PropTypes.func,
-   renderError: PropTypes.func
+   errorFunc: PropTypes.func
 };
  
   ValidatedInput.defaultProps = {
-    errorMsg:""
+    hasError:false
   };
-  
