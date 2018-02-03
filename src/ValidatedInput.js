@@ -20,6 +20,10 @@ export default class ValidatedInput extends React.Component {
       this.setState({
         hasError: true
       });
+    } else {
+      this.setState({
+        hasError: false
+      });
     }
   }
   render() {
